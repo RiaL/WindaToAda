@@ -1,4 +1,4 @@
-import Hello.Hello_Package;
+import Help.Help_Package;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -35,7 +35,7 @@ public class Test extends JPanel implements ActionListener {
         int liczba1 = Integer.parseInt(skladnik1.getText());
         int liczba2 = Integer.parseInt(skladnik2.getText());
         
-        int wynik = Hello_Package.Sum(liczba1, liczba2);
+        int wynik = Help_Package.Sum(liczba1, liczba2);
         
         suma.setText(new Integer(wynik).toString());
     }
