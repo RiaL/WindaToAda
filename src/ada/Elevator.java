@@ -1,18 +1,38 @@
 package ada;
 
+import java.util.LinkedList;
+import java.util.List;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+
 /**
  *
  * @author Krzysztof Kutt & Michal Nowak
  */
 public class Elevator extends javax.swing.JPanel {
 
+    static String SPACE = "   ";
+    static String FIRST_DOOR = "|   ";
+    static String SECOND_DOOR = "   |";
     ElevatorEngine elevatorEngine;
-    
+    int floorNumber = 1 + 10;
+    List<JLabel> floorList = new LinkedList<JLabel>();
     /**
      * Creates new form Elevator
      */
     public Elevator() {
         initComponents();
+        floorList.add(floor0Label);
+        floorList.add(floor1Label);
+        floorList.add(floor2Label);
+        floorList.add(floor3Label);
+        floorList.add(floor4Label);
+        floorList.add(floor5Label);
+        floorList.add(floor6Label);
+        floorList.add(floor7Label);
+        floorList.add(floor8Label);
+        floorList.add(floor9Label);
+        floorList.add(floor10Label);
     }
     
     public void setStartParams(int number, ElevatorEngine elevatorEngine){
@@ -20,12 +40,30 @@ public class Elevator extends javax.swing.JPanel {
         this.elevatorEngine = elevatorEngine;
     }
     
-    private void handleElevatorButton(int floor){
+    private void handleElevatorButton(java.awt.event.ActionEvent evt, int floor){
+        changeButtonState(evt, false);
         elevatorEngine.handleElevatorButton(floor);
     }
     
+    void setGUI(int passengersNumber, boolean doorOpen, int currentFloor){
+       for(int i=0;i<floorNumber;i++){
+           if(i != currentFloor){
+               JLabel jl = floorList.get(i);
+               jl.setText(i<10?SPACE+i:i + FIRST_DOOR + SPACE + SECOND_DOOR);
+           }else{
+               JLabel jl = floorList.get(i);
+               jl.setText(((i<10)?SPACE+i:i) + FIRST_DOOR + passengersNumber + SPACE + ((doorOpen)?" ":"|") + SPACE);
+           }
+       } 
+        
+    }
+        
     //TODO: trzeba zrobic odpowiednie funkcje setGUI i wywolywac je z ElevatorEngine!
     
+    void changeButtonState(java.awt.event.ActionEvent evt, boolean state){
+        JButton jb = (JButton)evt.getSource();
+        jb.setEnabled(state);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -61,15 +99,15 @@ public class Elevator extends javax.swing.JPanel {
         floor1Label = new javax.swing.JLabel();
         floor0Label = new javax.swing.JLabel();
 
-        floor7Label.setText("   7|   #   |   #");
+        floor7Label.setText("   7|         |");
 
-        floor9Label.setText("   9|   #   |   #");
+        floor9Label.setText("   9|         |");
 
-        floor8Label.setText("   8|   #   |   #");
+        floor8Label.setText("   8|         |");
 
         elevatorNumberLabel.setText("Winda X");
 
-        floor10Label.setText("10|   #   |   #");
+        floor10Label.setText("10|         |");
 
         floor6Button.setText("6");
         floor6Button.setMaximumSize(new java.awt.Dimension(30, 30));
@@ -91,9 +129,9 @@ public class Elevator extends javax.swing.JPanel {
             }
         });
 
-        floor5Label.setText("   5|   #   |   #");
+        floor5Label.setText("   5|         |");
 
-        floor6Label.setText("   6|   #   |   #");
+        floor6Label.setText("   6|         |");
 
         floor9Button.setText("9");
         floor9Button.setMaximumSize(new java.awt.Dimension(30, 30));
@@ -188,15 +226,15 @@ public class Elevator extends javax.swing.JPanel {
             }
         });
 
-        floor4Label.setText("   4|   #   |   #");
+        floor4Label.setText("   4|         |");
 
-        floor3Label.setText("   3|   #   |   #");
+        floor3Label.setText("   3|         |");
 
-        floor2Label.setText("   2|   #   |   #");
+        floor2Label.setText("   2|         |");
 
-        floor1Label.setText("   1|   #   |   #");
+        floor1Label.setText("   1|         |");
 
-        floor0Label.setText("   P|   #   |   #");
+        floor0Label.setText("   P|         |");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -216,22 +254,22 @@ public class Elevator extends javax.swing.JPanel {
                     .addComponent(floor2Label)
                     .addComponent(floor1Label)
                     .addComponent(floor0Label))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(floor2Button, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(floor0Button, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(floor10Button, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(floor8Button, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(floor6Button, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(floor4Button, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(floor10Button, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+                    .addComponent(floor8Button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(floor6Button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(floor4Button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(floor2Button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(floor0Button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(floor9Button, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(floor7Button, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(floor5Button, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(floor3Button, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(floor1Button, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(dangerButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(floor9Button, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+                    .addComponent(floor7Button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(floor5Button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(floor3Button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(floor1Button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(dangerButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -292,39 +330,40 @@ public class Elevator extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void floor6ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_floor6ButtonActionPerformed
-        handleElevatorButton(6);
+        changeButtonState(evt, false);
+        handleElevatorButton(evt, 6);
     }//GEN-LAST:event_floor6ButtonActionPerformed
 
     private void floor5ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_floor5ButtonActionPerformed
-        handleElevatorButton(5);
+        handleElevatorButton(evt,5);
     }//GEN-LAST:event_floor5ButtonActionPerformed
 
     private void floor9ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_floor9ButtonActionPerformed
-        handleElevatorButton(9);
+        handleElevatorButton(evt,9);
     }//GEN-LAST:event_floor9ButtonActionPerformed
 
     private void floor8ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_floor8ButtonActionPerformed
-        handleElevatorButton(8);
+        handleElevatorButton(evt,8);
     }//GEN-LAST:event_floor8ButtonActionPerformed
 
     private void floor7ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_floor7ButtonActionPerformed
-        handleElevatorButton(7);
+        handleElevatorButton(evt,7);
     }//GEN-LAST:event_floor7ButtonActionPerformed
 
     private void floor10ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_floor10ButtonActionPerformed
-        handleElevatorButton(10);
+        handleElevatorButton(evt,10);
     }//GEN-LAST:event_floor10ButtonActionPerformed
 
     private void floor3ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_floor3ButtonActionPerformed
-        handleElevatorButton(3);
+        handleElevatorButton(evt,3);
     }//GEN-LAST:event_floor3ButtonActionPerformed
 
     private void floor2ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_floor2ButtonActionPerformed
-        handleElevatorButton(2);
+        handleElevatorButton(evt,2);
     }//GEN-LAST:event_floor2ButtonActionPerformed
 
     private void floor0ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_floor0ButtonActionPerformed
-        handleElevatorButton(0);
+        handleElevatorButton(evt,0);
     }//GEN-LAST:event_floor0ButtonActionPerformed
 
     private void dangerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dangerButtonActionPerformed
@@ -332,11 +371,11 @@ public class Elevator extends javax.swing.JPanel {
     }//GEN-LAST:event_dangerButtonActionPerformed
 
     private void floor4ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_floor4ButtonActionPerformed
-        handleElevatorButton(4);
+        handleElevatorButton(evt,4);
     }//GEN-LAST:event_floor4ButtonActionPerformed
 
     private void floor1ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_floor1ButtonActionPerformed
-        handleElevatorButton(1);
+        handleElevatorButton(evt,1);
     }//GEN-LAST:event_floor1ButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

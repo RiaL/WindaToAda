@@ -100,6 +100,7 @@ public class ElevatorEngine implements Runnable {
                 //TODO: wygaszamy przycisk zatrzymania na tym pietrze (Floor)
                 
                 //TODO: jezeli winda jest pusta i nie ma wezwan to jedz na gore/dol albo po prostu czekaj w tym miejscu
+                // Michał: czekaj po prostu
                 
                 //TODO: jezeli nie osiagnieto destination to ciagle jedz w tym kierunku (czyli nic nie robisz,
                 //      w nastepnym obiegu petli winda bedzie pietro wyzej/nizej)
