@@ -17,6 +17,7 @@ public class Elevator extends javax.swing.JPanel {
     ElevatorEngine elevatorEngine;
     int floorNumber = 1 + 10;
     List<JLabel> floorList = new LinkedList<JLabel>();
+    List<JButton> buttonList = new LinkedList<JButton>();
     /**
      * Creates new form Elevator
      */
@@ -33,6 +34,20 @@ public class Elevator extends javax.swing.JPanel {
         floorList.add(floor8Label);
         floorList.add(floor9Label);
         floorList.add(floor10Label);
+        
+        buttonList.add(floor0Button);
+        buttonList.add(floor1Button);
+        buttonList.add(floor2Button);
+        buttonList.add(floor3Button);
+        buttonList.add(floor4Button);
+        buttonList.add(floor5Button);
+        buttonList.add(floor6Button);
+        buttonList.add(floor7Button);
+        buttonList.add(floor8Button);
+        buttonList.add(floor9Button);
+        buttonList.add(floor10Button);
+        
+        setGUI(5, false, 2);
     }
     
     public void setStartParams(int number, ElevatorEngine elevatorEngine){
@@ -46,14 +61,14 @@ public class Elevator extends javax.swing.JPanel {
     }
     
     void setGUI(int passengersNumber, boolean doorOpen, int currentFloor){
-       for(int i=0;i<floorNumber;i++){
+        int i=0;
+        for(JLabel jl: floorList){
            if(i != currentFloor){
-               JLabel jl = floorList.get(i);
-               jl.setText(i<10?SPACE+i:i + FIRST_DOOR + SPACE + SECOND_DOOR);
+               jl.setText(((i<10)?SPACE+i:(" "+i)) + FIRST_DOOR + SPACE + SECOND_DOOR);
            }else{
-               JLabel jl = floorList.get(i);
-               jl.setText(((i<10)?SPACE+i:i) + FIRST_DOOR + passengersNumber + SPACE + ((doorOpen)?" ":"|") + SPACE);
+               jl.setText(((i<10)?SPACE+i:i) + FIRST_DOOR + " " + passengersNumber + SPACE + ((doorOpen)?" ":"|") + SPACE);
            }
+           i++;
        } 
         
     }
@@ -65,6 +80,12 @@ public class Elevator extends javax.swing.JPanel {
         jb.setEnabled(state);
     }
 
+    void changeAllButtons(boolean state){
+        for(JButton button: buttonList){
+            button.setEnabled(state);
+        }
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -367,6 +388,7 @@ public class Elevator extends javax.swing.JPanel {
     }//GEN-LAST:event_floor0ButtonActionPerformed
 
     private void dangerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dangerButtonActionPerformed
+        changeAllButtons(false);
         // TODO: obsluga sytuacji awaryjnej
     }//GEN-LAST:event_dangerButtonActionPerformed
 

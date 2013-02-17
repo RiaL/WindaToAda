@@ -161,7 +161,7 @@ public class Floors extends javax.swing.JPanel {
             }
         });
 
-        floor10Label1.setText("10||   #");
+        floor10Label1.setText(" 10||   #");
 
         floor0RadioButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
