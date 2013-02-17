@@ -1,22 +1,31 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package ada;
 
 /**
  *
- * @author rial
+ * @author Krzysztof Kutt & Michal Nowak
  */
 public class Elevator extends javax.swing.JPanel {
 
+    ElevatorEngine elevatorEngine;
+    
     /**
      * Creates new form Elevator
      */
-    public Elevator(int number) {
+    public Elevator() {
         initComponents();
-        elevatorNumberLabel.setText("Winda " + number);
     }
+    
+    public void setStartParams(int number, ElevatorEngine elevatorEngine){
+        elevatorNumberLabel.setText("Winda " + number);
+        this.elevatorEngine = elevatorEngine;
+    }
+    
+    private void handleElevatorButton(int floor){
+        elevatorEngine.handleElevatorButton(floor);
+    }
+    
+    //TODO: trzeba zrobic odpowiednie funkcje setGUI i wywolywac je z ElevatorEngine!
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -283,51 +292,51 @@ public class Elevator extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void floor6ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_floor6ButtonActionPerformed
-        // TODO add your handling code here:
+        handleElevatorButton(6);
     }//GEN-LAST:event_floor6ButtonActionPerformed
 
     private void floor5ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_floor5ButtonActionPerformed
-        // TODO add your handling code here:
+        handleElevatorButton(5);
     }//GEN-LAST:event_floor5ButtonActionPerformed
 
     private void floor9ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_floor9ButtonActionPerformed
-        // TODO add your handling code here:
+        handleElevatorButton(9);
     }//GEN-LAST:event_floor9ButtonActionPerformed
 
     private void floor8ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_floor8ButtonActionPerformed
-        // TODO add your handling code here:
+        handleElevatorButton(8);
     }//GEN-LAST:event_floor8ButtonActionPerformed
 
     private void floor7ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_floor7ButtonActionPerformed
-        // TODO add your handling code here:
+        handleElevatorButton(7);
     }//GEN-LAST:event_floor7ButtonActionPerformed
 
     private void floor10ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_floor10ButtonActionPerformed
-        // TODO add your handling code here:
+        handleElevatorButton(10);
     }//GEN-LAST:event_floor10ButtonActionPerformed
 
     private void floor3ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_floor3ButtonActionPerformed
-        // TODO add your handling code here:
+        handleElevatorButton(3);
     }//GEN-LAST:event_floor3ButtonActionPerformed
 
     private void floor2ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_floor2ButtonActionPerformed
-        // TODO add your handling code here:
+        handleElevatorButton(2);
     }//GEN-LAST:event_floor2ButtonActionPerformed
 
     private void floor0ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_floor0ButtonActionPerformed
-        // TODO add your handling code here:
+        handleElevatorButton(0);
     }//GEN-LAST:event_floor0ButtonActionPerformed
 
     private void dangerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dangerButtonActionPerformed
-        // TODO add your handling code here:
+        // TODO: obsluga sytuacji awaryjnej
     }//GEN-LAST:event_dangerButtonActionPerformed
 
     private void floor4ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_floor4ButtonActionPerformed
-        // TODO add your handling code here:
+        handleElevatorButton(4);
     }//GEN-LAST:event_floor4ButtonActionPerformed
 
     private void floor1ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_floor1ButtonActionPerformed
-        // TODO add your handling code here:
+        handleElevatorButton(1);
     }//GEN-LAST:event_floor1ButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

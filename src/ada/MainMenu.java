@@ -1,12 +1,8 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package ada;
 
 /**
  *
- * @author rial
+ * @author Krzysztof Kutt & Michal Nowak
  */
 public class MainMenu extends javax.swing.JPanel {
 

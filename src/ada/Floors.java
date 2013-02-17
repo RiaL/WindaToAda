@@ -1,20 +1,71 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package ada;
 
 /**
  *
- * @author rial
+ * @author Krzysztof Kutt & Michal Nowak
  */
 public class Floors extends javax.swing.JPanel {
 
+    int floorsCount;
+    PassengerList passengersOnFloors[];
+    boolean buttons[];
+    
     /**
      * Creates new form Floors
      */
-    public Floors() {
+    public Floors(int floorsCount) {
+        this.floorsCount = floorsCount;
+        this.passengersOnFloors = new PassengerList[floorsCount];
+        this.buttons = new boolean[floorsCount];
+        
         initComponents();
+        
+        startPassengerGenerator();
+    }
+    
+    private void startPassengerGenerator(){
+        Runnable passengerGenerator = new PassengerGenerator(floorsCount,this);
+        Thread thread = new Thread(passengerGenerator);
+	thread.start();
+    }
+
+    public int getFloorsCount() {
+        return floorsCount;
+    }
+    
+    private void handleFloorButton(int floor) {
+        //TODO: ada musi zdecydowac ktora winde wolamy
+        
+        //TODO: ElevatorEngine.addRequestFloor()
+    }
+    
+    public void addNewPassengerOnFloor(int floor, Passenger passenger){
+        synchronized(passengersOnFloors[floor]){
+            passengersOnFloors[floor].add(passenger);
+        }
+        
+        //TODO: zmiana liczby pasazerow na pietrze!
+    }
+    
+    public Passenger[] getPassengersFromFloor(int floor, int max){
+        Passenger[] passengers = null;
+        synchronized(passengersOnFloors[floor]){
+            int size = passengersOnFloors[floor].size();
+            if( size == 0 ){
+                return null;
+            }
+            if( size > max ){
+                size = max;  //nie mozemy wziac wiecej niz max
+            }
+            
+            passengers = new Passenger[size];
+            for(int i = 0; i < size; i++){
+                passengers[i] = passengersOnFloors[floor].pop();
+            }
+        }
+        //TODO: zmiana liczby pasazerow na pietrze!
+        
+        return passengers;
     }
 
     /**
@@ -230,47 +281,47 @@ public class Floors extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void floor3RadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_floor3RadioButton1ActionPerformed
-        // TODO add your handling code here:
+        handleFloorButton(3);
     }//GEN-LAST:event_floor3RadioButton1ActionPerformed
 
     private void floor6RadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_floor6RadioButton1ActionPerformed
-        // TODO add your handling code here:
+        handleFloorButton(6);
     }//GEN-LAST:event_floor6RadioButton1ActionPerformed
 
     private void floor4RadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_floor4RadioButton1ActionPerformed
-        // TODO add your handling code here:
+        handleFloorButton(4);
     }//GEN-LAST:event_floor4RadioButton1ActionPerformed
 
     private void floor10RadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_floor10RadioButton1ActionPerformed
-        // TODO add your handling code here:
+        handleFloorButton(10);
     }//GEN-LAST:event_floor10RadioButton1ActionPerformed
 
     private void floor1RadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_floor1RadioButton1ActionPerformed
-        // TODO add your handling code here:
+        handleFloorButton(1);
     }//GEN-LAST:event_floor1RadioButton1ActionPerformed
 
     private void floor8RadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_floor8RadioButton1ActionPerformed
-        // TODO add your handling code here:
+        handleFloorButton(8);
     }//GEN-LAST:event_floor8RadioButton1ActionPerformed
 
     private void floor9RadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_floor9RadioButton1ActionPerformed
-        // TODO add your handling code here:
+        handleFloorButton(9);
     }//GEN-LAST:event_floor9RadioButton1ActionPerformed
 
     private void floor5RadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_floor5RadioButton1ActionPerformed
-        // TODO add your handling code here:
+        handleFloorButton(5);
     }//GEN-LAST:event_floor5RadioButton1ActionPerformed
 
     private void floor7RadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_floor7RadioButton1ActionPerformed
-        // TODO add your handling code here:
+        handleFloorButton(7);
     }//GEN-LAST:event_floor7RadioButton1ActionPerformed
 
     private void floor0RadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_floor0RadioButton1ActionPerformed
-        // TODO add your handling code here:
+        handleFloorButton(0);
     }//GEN-LAST:event_floor0RadioButton1ActionPerformed
 
     private void floor2RadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_floor2RadioButton1ActionPerformed
-        // TODO add your handling code here:
+        handleFloorButton(2);
     }//GEN-LAST:event_floor2RadioButton1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

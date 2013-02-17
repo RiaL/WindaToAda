@@ -1,17 +1,23 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package ada;
 
 import java.awt.GridLayout;
 import javax.swing.JFrame;
 
+//TODO: do obsluzenia jeszcze czas trwania symulacji!
+//TODO: trzeba tez wyswietlac na koniec raport z symulacji:
+//      - parametry wejsciowe
+//      - czas trwania
+//      - statystyki z wind (statPassengers i statFloors)
+
 /**
  *
- * @author rial
+ * @author Krzysztof Kutt & Michal Nowak
  */
 public class Simulation extends javax.swing.JPanel {
+    
+    static int ILOSC_PIETER = 11;
+    static int ILOSC_WIND = 2;
+    static int MAX_W_WINDZIE = 5;
     
     /**
      * Creates new form Simulation
@@ -28,10 +34,21 @@ public class Simulation extends javax.swing.JPanel {
         //Add contents to the window.
         Simulation simulation = new Simulation();
         simulation.setLayout(new GridLayout(1,3));
-        Floors floors = new Floors();
-        simulation.add(new Floors());        
-        simulation.add(new Elevator(1));
-        simulation.add(new Elevator(2));
+        Floors floors = new Floors(ILOSC_PIETER);
+        Elevator elevator1 = new Elevator();
+        Elevator elevator2 = new Elevator();
+        
+        simulation.add(floors);
+        simulation.add(elevator1);
+        simulation.add(elevator2);
+        
+        Runnable elevatorEngine1 = new ElevatorEngine(1,MAX_W_WINDZIE,0,floors,elevator1);
+        Thread thread1 = new Thread(elevatorEngine1);
+	thread1.start();
+        
+        Runnable elevatorEngine2 = new ElevatorEngine(2,MAX_W_WINDZIE,ILOSC_PIETER,floors,elevator2);
+        Thread thread2 = new Thread(elevatorEngine2);
+	thread2.start();
         
         
         frame.add(simulation);
