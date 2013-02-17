@@ -47,7 +47,7 @@ public class MainMenu extends javax.swing.JPanel {
 
         floorsLabel.setText("Ilość pięter:");
 
-        florrComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "8", "9", "10", "11", "12", "13", "14", "15" }));
+        florrComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "5", "6", "7", "8", "9", "10" }));
 
         elevatorsLabel.setText("Ilość wind:");
 
