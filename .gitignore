@@ -5,13 +5,8 @@
 *.war
 *.ear
 
-# Ada Files #
-Ada/*
-Ada2Java/*
-ada_bindings/*
-Help/*
-Standard/*
-
 # backup files #
 *~
 
+/nbproject/private/
+/build/
