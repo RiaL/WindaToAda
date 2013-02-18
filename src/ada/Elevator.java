@@ -46,8 +46,6 @@ public class Elevator extends javax.swing.JPanel {
         buttonList.add(floor8Button);
         buttonList.add(floor9Button);
         buttonList.add(floor10Button);
-        
-        setGUI(5, false, 2);
     }
     
     public void setStartParams(int number, ElevatorEngine elevatorEngine){
@@ -60,7 +58,7 @@ public class Elevator extends javax.swing.JPanel {
         elevatorEngine.handleElevatorButton(floor);
     }
     
-    void setGUI(int passengersNumber, boolean doorOpen, int currentFloor){
+    public void setGUI(int passengersNumber, boolean doorOpen, int currentFloor){
         int i=0;
         for(JLabel jl: floorList){
            if(i != currentFloor){

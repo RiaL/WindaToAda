@@ -71,6 +71,11 @@ public class ElevatorEngine implements Runnable {
         this.requestedFloors[floor] = newState;
     }
     
+    private void draw(){
+        elevator.setGUI(passengers.size(), doorOpen, currentFloor);
+        floors.setGUI();
+    }
+    
     @Override
     @SuppressWarnings("SleepWhileInLoop")
     public void run() {
@@ -80,12 +85,25 @@ public class ElevatorEngine implements Runnable {
         while(true){
             try {
                 
+                draw();
+                
                 //TODO: zmieniamy pietro (currentFloor + state; pamietaj o sprawdzeniu czy nie wychodzisz poza zakres)
                 //      jezeli pietro zostalo zmienione to statFloors++;
+                currentFloor += state;
+                if (state != 0)
+                    statFloors++;
+                
                 
                 //TODO: czy na tym pietrze sie zatrzymujemy? jezeli nie to koniec tego obiegu petli
+                //DONE
+                if(currentFloor != destination)
+                    continue;
+                
                 
                 //TODO: otwarcie drzwi
+                //DONE
+                doorOpen = true;
+                draw();
                 
                 //TODO: kto wysiada
                 
@@ -95,6 +113,9 @@ public class ElevatorEngine implements Runnable {
                 //      zwieksz odpowiednio statPassengers;
                 
                 //TODO: zamkniecie drzwi
+                // DONE
+                doorOpen = false;
+                draw();
                 
                 //TODO: usuwamy zadanie zatrzymania na tym pietrze: removeRequestFloor()
                 //TODO: wygaszamy przycisk zatrzymania na tym pietrze (Floor)

@@ -15,7 +15,7 @@ import javax.swing.JFrame;
  */
 public class Simulation extends javax.swing.JPanel {
     
-    static int ILOSC_PIETER = 11;
+    static int ILOSC_PIETER = 10 + 1; // to +1 to po to zeby pamietac pozniej o uwzglednieniu parteru
     static int ILOSC_WIND = 2;
     static int MAX_W_WINDZIE = 5;
     

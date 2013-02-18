@@ -1,24 +1,60 @@
 package ada;
 
+import java.util.LinkedList;
+import java.util.List;
+import javax.swing.JLabel;
+import javax.swing.JRadioButton;
+
 /**
  *
  * @author Krzysztof Kutt & Michal Nowak
  */
 public class Floors extends javax.swing.JPanel {
 
+    String SPACE = "   ";
+    String FLOOR = "||   ";
+    
     int floorsCount;
     PassengerList passengersOnFloors[];
     boolean buttons[];
-    
+    List<JLabel> floorList = new LinkedList<JLabel>();
+    List<JRadioButton> buttonList = new LinkedList<JRadioButton>();
     /**
      * Creates new form Floors
      */
     public Floors(int floorsCount) {
         this.floorsCount = floorsCount;
         this.passengersOnFloors = new PassengerList[floorsCount];
+        for(int i = 0; i < floorsCount; i++)
+            this.passengersOnFloors[i] = new PassengerList();
         this.buttons = new boolean[floorsCount];
         
         initComponents();
+        floorList.add(floor0Label);
+        floorList.add(floor1Label);
+        floorList.add(floor2Label);
+        floorList.add(floor3Label);
+        floorList.add(floor4Label);
+        floorList.add(floor5Label);
+        floorList.add(floor6Label);
+        floorList.add(floor7Label);
+        floorList.add(floor8Label);
+        floorList.add(floor9Label);
+        floorList.add(floor10Label);
+        
+        buttonList.add(floor0RadioButton);
+        buttonList.add(floor1RadioButton);
+        buttonList.add(floor2RadioButton);
+        buttonList.add(floor3RadioButton);
+        buttonList.add(floor4RadioButton);
+        buttonList.add(floor5RadioButton);
+        buttonList.add(floor6RadioButton);
+        buttonList.add(floor7RadioButton);
+        buttonList.add(floor8RadioButton);
+        buttonList.add(floor9RadioButton);
+        buttonList.add(floor10RadioButton);
+        
+        setGUI();
         
         startPassengerGenerator();
     }
@@ -45,6 +81,7 @@ public class Floors extends javax.swing.JPanel {
         }
         
         //TODO: zmiana liczby pasazerow na pietrze!
+        setGUI();
     }
     
     public Passenger[] getPassengersFromFloor(int floor, int max){
@@ -63,11 +100,26 @@ public class Floors extends javax.swing.JPanel {
                 passengers[i] = passengersOnFloors[floor].pop();
             }
         }
+        
+        setGUI();
+        
         //TODO: zmiana liczby pasazerow na pietrze!
         
         return passengers;
     }
 
+    public void setGUI(){
+        int i=0;
+        for(JRadioButton button: buttonList){
+            button.setSelected(buttons[i++]);
+        }
+        int j=0;
+        for(JLabel floor: floorList){
+            floor.setText(((j<10)?SPACE+j:(" "+j)) + FLOOR + ((passengersOnFloors[j].size()!=0)?passengersOnFloors[j].size():SPACE));
+            j++;
+       } 
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -77,119 +129,119 @@ public class Floors extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        floor0Label1 = new javax.swing.JLabel();
-        floor3RadioButton1 = new javax.swing.JRadioButton();
-        floor6RadioButton1 = new javax.swing.JRadioButton();
-        floor1Label1 = new javax.swing.JLabel();
-        floor4RadioButton1 = new javax.swing.JRadioButton();
-        floor8Label1 = new javax.swing.JLabel();
-        floor10RadioButton1 = new javax.swing.JRadioButton();
-        floor1RadioButton1 = new javax.swing.JRadioButton();
-        floor8RadioButton1 = new javax.swing.JRadioButton();
-        floor9RadioButton1 = new javax.swing.JRadioButton();
-        floor5RadioButton1 = new javax.swing.JRadioButton();
-        floor7RadioButton1 = new javax.swing.JRadioButton();
-        floor10Label1 = new javax.swing.JLabel();
-        floor0RadioButton1 = new javax.swing.JRadioButton();
-        floor5Label1 = new javax.swing.JLabel();
-        floor2RadioButton1 = new javax.swing.JRadioButton();
-        floor6Label1 = new javax.swing.JLabel();
-        floor9Label1 = new javax.swing.JLabel();
-        floor4Label1 = new javax.swing.JLabel();
-        floor3Label1 = new javax.swing.JLabel();
+        floor0Label = new javax.swing.JLabel();
+        floor3RadioButton = new javax.swing.JRadioButton();
+        floor6RadioButton = new javax.swing.JRadioButton();
+        floor1Label = new javax.swing.JLabel();
+        floor4RadioButton = new javax.swing.JRadioButton();
+        floor8Label = new javax.swing.JLabel();
+        floor10RadioButton = new javax.swing.JRadioButton();
+        floor1RadioButton = new javax.swing.JRadioButton();
+        floor8RadioButton = new javax.swing.JRadioButton();
+        floor9RadioButton = new javax.swing.JRadioButton();
+        floor5RadioButton = new javax.swing.JRadioButton();
+        floor7RadioButton = new javax.swing.JRadioButton();
+        floor10Label = new javax.swing.JLabel();
+        floor0RadioButton = new javax.swing.JRadioButton();
+        floor5Label = new javax.swing.JLabel();
+        floor2RadioButton = new javax.swing.JRadioButton();
+        floor6Label = new javax.swing.JLabel();
+        floor9Label = new javax.swing.JLabel();
+        floor4Label = new javax.swing.JLabel();
+        floor3Label = new javax.swing.JLabel();
         simulationLabel = new javax.swing.JLabel();
-        floor2Label1 = new javax.swing.JLabel();
-        floor7Label1 = new javax.swing.JLabel();
+        floor2Label = new javax.swing.JLabel();
+        floor7Label = new javax.swing.JLabel();
 
-        floor0Label1.setText("   P||   #");
+        floor0Label.setText("   P||   #");
 
-        floor3RadioButton1.addActionListener(new java.awt.event.ActionListener() {
+        floor3RadioButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                floor3RadioButton1ActionPerformed(evt);
+                floor3RadioButtonActionPerformed(evt);
             }
         });
 
-        floor6RadioButton1.addActionListener(new java.awt.event.ActionListener() {
+        floor6RadioButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                floor6RadioButton1ActionPerformed(evt);
+                floor6RadioButtonActionPerformed(evt);
             }
         });
 
-        floor1Label1.setText("   1||   #");
+        floor1Label.setText("   1||   #");
 
-        floor4RadioButton1.addActionListener(new java.awt.event.ActionListener() {
+        floor4RadioButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                floor4RadioButton1ActionPerformed(evt);
+                floor4RadioButtonActionPerformed(evt);
             }
         });
 
-        floor8Label1.setText("   8||   #");
+        floor8Label.setText("   8||   #");
 
-        floor10RadioButton1.addActionListener(new java.awt.event.ActionListener() {
+        floor10RadioButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                floor10RadioButton1ActionPerformed(evt);
+                floor10RadioButtonActionPerformed(evt);
             }
         });
 
-        floor1RadioButton1.addActionListener(new java.awt.event.ActionListener() {
+        floor1RadioButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                floor1RadioButton1ActionPerformed(evt);
+                floor1RadioButtonActionPerformed(evt);
             }
         });
 
-        floor8RadioButton1.addActionListener(new java.awt.event.ActionListener() {
+        floor8RadioButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                floor8RadioButton1ActionPerformed(evt);
+                floor8RadioButtonActionPerformed(evt);
             }
         });
 
-        floor9RadioButton1.addActionListener(new java.awt.event.ActionListener() {
+        floor9RadioButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                floor9RadioButton1ActionPerformed(evt);
+                floor9RadioButtonActionPerformed(evt);
             }
         });
 
-        floor5RadioButton1.addActionListener(new java.awt.event.ActionListener() {
+        floor5RadioButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                floor5RadioButton1ActionPerformed(evt);
+                floor5RadioButtonActionPerformed(evt);
             }
         });
 
-        floor7RadioButton1.addActionListener(new java.awt.event.ActionListener() {
+        floor7RadioButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                floor7RadioButton1ActionPerformed(evt);
+                floor7RadioButtonActionPerformed(evt);
             }
         });
 
-        floor10Label1.setText(" 10||   #");
+        floor10Label.setText(" 10||   #");
 
-        floor0RadioButton1.addActionListener(new java.awt.event.ActionListener() {
+        floor0RadioButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                floor0RadioButton1ActionPerformed(evt);
+                floor0RadioButtonActionPerformed(evt);
             }
         });
 
-        floor5Label1.setText("   5||   #");
+        floor5Label.setText("   5||   #");
 
-        floor2RadioButton1.addActionListener(new java.awt.event.ActionListener() {
+        floor2RadioButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                floor2RadioButton1ActionPerformed(evt);
+                floor2RadioButtonActionPerformed(evt);
             }
         });
 
-        floor6Label1.setText("   6||   #");
+        floor6Label.setText("   6||   #");
 
-        floor9Label1.setText("   9||   #");
+        floor9Label.setText("   9||   #");
 
-        floor4Label1.setText("   4||   #");
+        floor4Label.setText("   4||   #");
 
-        floor3Label1.setText("   3||   #");
+        floor3Label.setText("   3||   #");
 
         simulationLabel.setText("Symulacja windy");
 
-        floor2Label1.setText("   2||   #");
+        floor2Label.setText("   2||   #");
 
-        floor7Label1.setText("   7||   #");
+        floor7Label.setText("   7||   #");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -201,30 +253,30 @@ public class Floors extends javax.swing.JPanel {
                     .addComponent(simulationLabel)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(floor10Label1)
-                            .addComponent(floor9Label1)
-                            .addComponent(floor8Label1)
-                            .addComponent(floor7Label1)
-                            .addComponent(floor6Label1)
-                            .addComponent(floor5Label1)
-                            .addComponent(floor4Label1)
-                            .addComponent(floor3Label1)
-                            .addComponent(floor2Label1)
-                            .addComponent(floor1Label1)
-                            .addComponent(floor0Label1))
+                            .addComponent(floor10Label)
+                            .addComponent(floor9Label)
+                            .addComponent(floor8Label)
+                            .addComponent(floor7Label)
+                            .addComponent(floor6Label)
+                            .addComponent(floor5Label)
+                            .addComponent(floor4Label)
+                            .addComponent(floor3Label)
+                            .addComponent(floor2Label)
+                            .addComponent(floor1Label)
+                            .addComponent(floor0Label))
                         .addGap(1, 1, 1)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(floor10RadioButton1)
-                            .addComponent(floor0RadioButton1)
-                            .addComponent(floor9RadioButton1)
-                            .addComponent(floor8RadioButton1)
-                            .addComponent(floor7RadioButton1)
-                            .addComponent(floor6RadioButton1)
-                            .addComponent(floor5RadioButton1)
-                            .addComponent(floor4RadioButton1)
-                            .addComponent(floor3RadioButton1)
-                            .addComponent(floor2RadioButton1)
-                            .addComponent(floor1RadioButton1))))
+                            .addComponent(floor10RadioButton)
+                            .addComponent(floor0RadioButton)
+                            .addComponent(floor9RadioButton)
+                            .addComponent(floor8RadioButton)
+                            .addComponent(floor7RadioButton)
+                            .addComponent(floor6RadioButton)
+                            .addComponent(floor5RadioButton)
+                            .addComponent(floor4RadioButton)
+                            .addComponent(floor3RadioButton)
+                            .addComponent(floor2RadioButton)
+                            .addComponent(floor1RadioButton))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -234,119 +286,119 @@ public class Floors extends javax.swing.JPanel {
                 .addComponent(simulationLabel)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(floor10RadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(floor10Label1))
+                    .addComponent(floor10RadioButton, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(floor10Label))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(floor9Label1)
-                    .addComponent(floor9RadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(floor9Label)
+                    .addComponent(floor9RadioButton, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(floor8Label1)
-                    .addComponent(floor8RadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(floor8Label)
+                    .addComponent(floor8RadioButton, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(floor7Label1)
-                    .addComponent(floor7RadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(floor7Label)
+                    .addComponent(floor7RadioButton, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(floor6Label1)
-                    .addComponent(floor6RadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(floor6Label)
+                    .addComponent(floor6RadioButton, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(floor5Label1)
-                    .addComponent(floor5RadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(floor5Label)
+                    .addComponent(floor5RadioButton, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(floor4Label1)
-                    .addComponent(floor4RadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(floor4Label)
+                    .addComponent(floor4RadioButton, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(floor3Label1)
-                    .addComponent(floor3RadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(floor3Label)
+                    .addComponent(floor3RadioButton, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(floor2Label1)
-                    .addComponent(floor2RadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(floor2Label)
+                    .addComponent(floor2RadioButton, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(floor1Label1)
-                    .addComponent(floor1RadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(floor1Label)
+                    .addComponent(floor1RadioButton, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(floor0RadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(floor0Label1))
+                    .addComponent(floor0RadioButton, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(floor0Label))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void floor3RadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_floor3RadioButton1ActionPerformed
+    private void floor3RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_floor3RadioButtonActionPerformed
         handleFloorButton(3);
-    }//GEN-LAST:event_floor3RadioButton1ActionPerformed
+    }//GEN-LAST:event_floor3RadioButtonActionPerformed
 
-    private void floor6RadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_floor6RadioButton1ActionPerformed
+    private void floor6RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_floor6RadioButtonActionPerformed
         handleFloorButton(6);
-    }//GEN-LAST:event_floor6RadioButton1ActionPerformed
+    }//GEN-LAST:event_floor6RadioButtonActionPerformed
 
-    private void floor4RadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_floor4RadioButton1ActionPerformed
+    private void floor4RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_floor4RadioButtonActionPerformed
         handleFloorButton(4);
-    }//GEN-LAST:event_floor4RadioButton1ActionPerformed
+    }//GEN-LAST:event_floor4RadioButtonActionPerformed
 
-    private void floor10RadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_floor10RadioButton1ActionPerformed
+    private void floor10RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_floor10RadioButtonActionPerformed
         handleFloorButton(10);
-    }//GEN-LAST:event_floor10RadioButton1ActionPerformed
+    }//GEN-LAST:event_floor10RadioButtonActionPerformed
 
-    private void floor1RadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_floor1RadioButton1ActionPerformed
+    private void floor1RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_floor1RadioButtonActionPerformed
         handleFloorButton(1);
-    }//GEN-LAST:event_floor1RadioButton1ActionPerformed
+    }//GEN-LAST:event_floor1RadioButtonActionPerformed
 
-    private void floor8RadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_floor8RadioButton1ActionPerformed
+    private void floor8RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_floor8RadioButtonActionPerformed
         handleFloorButton(8);
-    }//GEN-LAST:event_floor8RadioButton1ActionPerformed
+    }//GEN-LAST:event_floor8RadioButtonActionPerformed
 
-    private void floor9RadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_floor9RadioButton1ActionPerformed
+    private void floor9RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_floor9RadioButtonActionPerformed
         handleFloorButton(9);
-    }//GEN-LAST:event_floor9RadioButton1ActionPerformed
+    }//GEN-LAST:event_floor9RadioButtonActionPerformed
 
-    private void floor5RadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_floor5RadioButton1ActionPerformed
+    private void floor5RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_floor5RadioButtonActionPerformed
         handleFloorButton(5);
-    }//GEN-LAST:event_floor5RadioButton1ActionPerformed
+    }//GEN-LAST:event_floor5RadioButtonActionPerformed
 
-    private void floor7RadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_floor7RadioButton1ActionPerformed
+    private void floor7RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_floor7RadioButtonActionPerformed
         handleFloorButton(7);
-    }//GEN-LAST:event_floor7RadioButton1ActionPerformed
+    }//GEN-LAST:event_floor7RadioButtonActionPerformed
 
-    private void floor0RadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_floor0RadioButton1ActionPerformed
+    private void floor0RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_floor0RadioButtonActionPerformed
         handleFloorButton(0);
-    }//GEN-LAST:event_floor0RadioButton1ActionPerformed
+    }//GEN-LAST:event_floor0RadioButtonActionPerformed
 
-    private void floor2RadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_floor2RadioButton1ActionPerformed
+    private void floor2RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_floor2RadioButtonActionPerformed
         handleFloorButton(2);
-    }//GEN-LAST:event_floor2RadioButton1ActionPerformed
+    }//GEN-LAST:event_floor2RadioButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel floor0Label1;
-    private javax.swing.JRadioButton floor0RadioButton1;
-    private javax.swing.JLabel floor10Label1;
-    private javax.swing.JRadioButton floor10RadioButton1;
-    private javax.swing.JLabel floor1Label1;
-    private javax.swing.JRadioButton floor1RadioButton1;
-    private javax.swing.JLabel floor2Label1;
-    private javax.swing.JRadioButton floor2RadioButton1;
-    private javax.swing.JLabel floor3Label1;
-    private javax.swing.JRadioButton floor3RadioButton1;
-    private javax.swing.JLabel floor4Label1;
-    private javax.swing.JRadioButton floor4RadioButton1;
-    private javax.swing.JLabel floor5Label1;
-    private javax.swing.JRadioButton floor5RadioButton1;
-    private javax.swing.JLabel floor6Label1;
-    private javax.swing.JRadioButton floor6RadioButton1;
-    private javax.swing.JLabel floor7Label1;
-    private javax.swing.JRadioButton floor7RadioButton1;
-    private javax.swing.JLabel floor8Label1;
-    private javax.swing.JRadioButton floor8RadioButton1;
-    private javax.swing.JLabel floor9Label1;
-    private javax.swing.JRadioButton floor9RadioButton1;
+    private javax.swing.JLabel floor0Label;
+    private javax.swing.JRadioButton floor0RadioButton;
+    private javax.swing.JLabel floor10Label;
+    private javax.swing.JRadioButton floor10RadioButton;
+    private javax.swing.JLabel floor1Label;
+    private javax.swing.JRadioButton floor1RadioButton;
+    private javax.swing.JLabel floor2Label;
+    private javax.swing.JRadioButton floor2RadioButton;
+    private javax.swing.JLabel floor3Label;
+    private javax.swing.JRadioButton floor3RadioButton;
+    private javax.swing.JLabel floor4Label;
+    private javax.swing.JRadioButton floor4RadioButton;
+    private javax.swing.JLabel floor5Label;
+    private javax.swing.JRadioButton floor5RadioButton;
+    private javax.swing.JLabel floor6Label;
+    private javax.swing.JRadioButton floor6RadioButton;
+    private javax.swing.JLabel floor7Label;
+    private javax.swing.JRadioButton floor7RadioButton;
+    private javax.swing.JLabel floor8Label;
+    private javax.swing.JRadioButton floor8RadioButton;
+    private javax.swing.JLabel floor9Label;
+    private javax.swing.JRadioButton floor9RadioButton;
     private javax.swing.JLabel simulationLabel;
     // End of variables declaration//GEN-END:variables
 }

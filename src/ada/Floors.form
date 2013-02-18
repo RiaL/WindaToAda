@@ -22,31 +22,31 @@
                   <Component id="simulationLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="floor10Label1" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="floor9Label1" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="floor8Label1" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="floor7Label1" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="floor6Label1" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="floor5Label1" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="floor4Label1" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="floor3Label1" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="floor2Label1" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="floor1Label1" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="floor0Label1" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="floor10Label" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="floor9Label" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="floor8Label" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="floor7Label" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="floor6Label" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="floor5Label" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="floor4Label" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="floor3Label" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="floor2Label" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="floor1Label" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="floor0Label" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="floor10RadioButton1" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="floor0RadioButton1" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="floor9RadioButton1" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="floor8RadioButton1" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="floor7RadioButton1" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="floor6RadioButton1" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="floor5RadioButton1" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="floor4RadioButton1" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="floor3RadioButton1" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="floor2RadioButton1" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="floor1RadioButton1" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="floor10RadioButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="floor0RadioButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="floor9RadioButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="floor8RadioButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="floor7RadioButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="floor6RadioButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="floor5RadioButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="floor4RadioButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="floor3RadioButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="floor2RadioButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="floor1RadioButton" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -61,58 +61,58 @@
               <Component id="simulationLabel" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="floor10RadioButton1" alignment="0" pref="0" max="32767" attributes="0"/>
-                  <Component id="floor10Label1" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="floor10RadioButton" alignment="0" pref="0" max="32767" attributes="0"/>
+                  <Component id="floor10Label" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="floor9Label1" alignment="0" max="-2" attributes="0"/>
-                  <Component id="floor9RadioButton1" alignment="0" pref="0" max="32767" attributes="0"/>
+                  <Component id="floor9Label" alignment="0" max="-2" attributes="0"/>
+                  <Component id="floor9RadioButton" alignment="0" pref="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="floor8Label1" alignment="0" max="-2" attributes="0"/>
-                  <Component id="floor8RadioButton1" alignment="0" pref="0" max="32767" attributes="0"/>
+                  <Component id="floor8Label" alignment="0" max="-2" attributes="0"/>
+                  <Component id="floor8RadioButton" alignment="0" pref="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="floor7Label1" alignment="0" max="-2" attributes="0"/>
-                  <Component id="floor7RadioButton1" alignment="0" pref="0" max="32767" attributes="0"/>
+                  <Component id="floor7Label" alignment="0" max="-2" attributes="0"/>
+                  <Component id="floor7RadioButton" alignment="0" pref="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="floor6Label1" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="floor6RadioButton1" alignment="0" pref="0" max="32767" attributes="0"/>
+                  <Component id="floor6Label" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="floor6RadioButton" alignment="0" pref="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="floor5Label1" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="floor5RadioButton1" alignment="0" pref="0" max="32767" attributes="0"/>
+                  <Component id="floor5Label" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="floor5RadioButton" alignment="0" pref="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="floor4Label1" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="floor4RadioButton1" alignment="0" pref="0" max="32767" attributes="0"/>
+                  <Component id="floor4Label" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="floor4RadioButton" alignment="0" pref="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="floor3Label1" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="floor3RadioButton1" alignment="0" pref="0" max="32767" attributes="0"/>
+                  <Component id="floor3Label" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="floor3RadioButton" alignment="0" pref="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="floor2Label1" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="floor2RadioButton1" alignment="0" pref="0" max="32767" attributes="0"/>
+                  <Component id="floor2Label" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="floor2RadioButton" alignment="0" pref="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="floor1Label1" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="floor1RadioButton1" alignment="0" pref="0" max="32767" attributes="0"/>
+                  <Component id="floor1Label" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="floor1RadioButton" alignment="0" pref="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="floor0RadioButton1" alignment="0" pref="0" max="32767" attributes="0"/>
-                  <Component id="floor0Label1" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="floor0RadioButton" alignment="0" pref="0" max="32767" attributes="0"/>
+                  <Component id="floor0Label" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -120,102 +120,102 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="floor0Label1">
+    <Component class="javax.swing.JLabel" name="floor0Label">
       <Properties>
         <Property name="text" type="java.lang.String" value="   P||   #"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JRadioButton" name="floor3RadioButton1">
+    <Component class="javax.swing.JRadioButton" name="floor3RadioButton">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="floor3RadioButton1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="floor3RadioButtonActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JRadioButton" name="floor6RadioButton1">
+    <Component class="javax.swing.JRadioButton" name="floor6RadioButton">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="floor6RadioButton1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="floor6RadioButtonActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="floor1Label1">
+    <Component class="javax.swing.JLabel" name="floor1Label">
       <Properties>
         <Property name="text" type="java.lang.String" value="   1||   #"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JRadioButton" name="floor4RadioButton1">
+    <Component class="javax.swing.JRadioButton" name="floor4RadioButton">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="floor4RadioButton1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="floor4RadioButtonActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="floor8Label1">
+    <Component class="javax.swing.JLabel" name="floor8Label">
       <Properties>
         <Property name="text" type="java.lang.String" value="   8||   #"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JRadioButton" name="floor10RadioButton1">
+    <Component class="javax.swing.JRadioButton" name="floor10RadioButton">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="floor10RadioButton1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="floor10RadioButtonActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JRadioButton" name="floor1RadioButton1">
+    <Component class="javax.swing.JRadioButton" name="floor1RadioButton">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="floor1RadioButton1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="floor1RadioButtonActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JRadioButton" name="floor8RadioButton1">
+    <Component class="javax.swing.JRadioButton" name="floor8RadioButton">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="floor8RadioButton1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="floor8RadioButtonActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JRadioButton" name="floor9RadioButton1">
+    <Component class="javax.swing.JRadioButton" name="floor9RadioButton">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="floor9RadioButton1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="floor9RadioButtonActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JRadioButton" name="floor5RadioButton1">
+    <Component class="javax.swing.JRadioButton" name="floor5RadioButton">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="floor5RadioButton1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="floor5RadioButtonActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JRadioButton" name="floor7RadioButton1">
+    <Component class="javax.swing.JRadioButton" name="floor7RadioButton">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="floor7RadioButton1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="floor7RadioButtonActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="floor10Label1">
+    <Component class="javax.swing.JLabel" name="floor10Label">
       <Properties>
         <Property name="text" type="java.lang.String" value=" 10||   #"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JRadioButton" name="floor0RadioButton1">
+    <Component class="javax.swing.JRadioButton" name="floor0RadioButton">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="floor0RadioButton1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="floor0RadioButtonActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="floor5Label1">
+    <Component class="javax.swing.JLabel" name="floor5Label">
       <Properties>
         <Property name="text" type="java.lang.String" value="   5||   #"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JRadioButton" name="floor2RadioButton1">
+    <Component class="javax.swing.JRadioButton" name="floor2RadioButton">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="floor2RadioButton1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="floor2RadioButtonActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="floor6Label1">
+    <Component class="javax.swing.JLabel" name="floor6Label">
       <Properties>
         <Property name="text" type="java.lang.String" value="   6||   #"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="floor9Label1">
+    <Component class="javax.swing.JLabel" name="floor9Label">
       <Properties>
         <Property name="text" type="java.lang.String" value="   9||   #"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="floor4Label1">
+    <Component class="javax.swing.JLabel" name="floor4Label">
       <Properties>
         <Property name="text" type="java.lang.String" value="   4||   #"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="floor3Label1">
+    <Component class="javax.swing.JLabel" name="floor3Label">
       <Properties>
         <Property name="text" type="java.lang.String" value="   3||   #"/>
       </Properties>
@@ -225,12 +225,12 @@
         <Property name="text" type="java.lang.String" value="Symulacja windy"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="floor2Label1">
+    <Component class="javax.swing.JLabel" name="floor2Label">
       <Properties>
         <Property name="text" type="java.lang.String" value="   2||   #"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="floor7Label1">
+    <Component class="javax.swing.JLabel" name="floor7Label">
       <Properties>
         <Property name="text" type="java.lang.String" value="   7||   #"/>
       </Properties>
