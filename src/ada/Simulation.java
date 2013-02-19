@@ -15,7 +15,7 @@ import javax.swing.JFrame;
  */
 public class Simulation extends javax.swing.JPanel {
     
-    static int ILOSC_PIETER = 10 + 1; // to +1 to po to zeby pamietac pozniej o uwzglednieniu parteru
+    public static int ILOSC_PIETER = 10 + 1; // to +1 to po to zeby pamietac pozniej o uwzglednieniu parteru
     static int ILOSC_WIND = 2;
     static int MAX_W_WINDZIE = 5;
     
@@ -34,7 +34,7 @@ public class Simulation extends javax.swing.JPanel {
         //Add contents to the window.
         Simulation simulation = new Simulation();
         simulation.setLayout(new GridLayout(1,3));
-        Floors floors = new Floors(ILOSC_PIETER);
+        Floors floors = new Floors(ILOSC_PIETER,ILOSC_WIND);
         Elevator elevator1 = new Elevator();
         Elevator elevator2 = new Elevator();
         
@@ -42,11 +42,11 @@ public class Simulation extends javax.swing.JPanel {
         simulation.add(elevator1);
         simulation.add(elevator2);
         
-        Runnable elevatorEngine1 = new ElevatorEngine(1,MAX_W_WINDZIE,0,floors,elevator1);
+        Runnable elevatorEngine1 = new ElevatorEngine(0,MAX_W_WINDZIE,0,floors,elevator1);
         Thread thread1 = new Thread(elevatorEngine1);
 	thread1.start();
         
-        Runnable elevatorEngine2 = new ElevatorEngine(2,MAX_W_WINDZIE,ILOSC_PIETER,floors,elevator2);
+        Runnable elevatorEngine2 = new ElevatorEngine(1,MAX_W_WINDZIE,ILOSC_PIETER-1,floors,elevator2);
         Thread thread2 = new Thread(elevatorEngine2);
 	thread2.start();
         

@@ -58,21 +58,22 @@ public class Elevator extends javax.swing.JPanel {
         elevatorEngine.handleElevatorButton(floor);
     }
     
-    public void setGUI(int passengersNumber, boolean doorOpen, int currentFloor){
-        int i=0;
-        for(JLabel jl: floorList){
-           if(i != currentFloor){
-               jl.setText(((i<10)?SPACE+i:(" "+i)) + FIRST_DOOR + SPACE + SECOND_DOOR);
-           }else{
-               jl.setText(((i<10)?SPACE+i:i) + FIRST_DOOR + " " + passengersNumber + SPACE + ((doorOpen)?" ":"|") + SPACE);
-           }
-           i++;
-       } 
-        
+    public void setGUI(int passengersNumber, boolean doorOpen, int currentFloor) {
+        int i = 0;
+        for (JLabel jl : floorList) {
+            if (i != currentFloor) {
+                jl.setText(((i < 10) ? SPACE + i : (" " + i)) + FIRST_DOOR + SPACE + SECOND_DOOR);
+            } else {
+                jl.setText(((i < 10) ? SPACE + i : i) + FIRST_DOOR + " " + passengersNumber + SPACE + ((doorOpen) ? " " : "|") + SPACE);
+            }
+            i++;
+        }
+    }
+    
+    void enableButtonOnFloor(int floor){
+        buttonList.get(floor).setEnabled(true);
     }
         
-    //TODO: trzeba zrobic odpowiednie funkcje setGUI i wywolywac je z ElevatorEngine!
-    
     void changeButtonState(java.awt.event.ActionEvent evt, boolean state){
         JButton jb = (JButton)evt.getSource();
         jb.setEnabled(state);

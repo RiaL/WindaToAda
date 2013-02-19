@@ -17,17 +17,19 @@ public class Floors extends javax.swing.JPanel {
     int floorsCount;
     PassengerList passengersOnFloors[];
     boolean buttons[];
+    ElevatorEngine elevators[];
     List<JLabel> floorList = new LinkedList<JLabel>();
     List<JRadioButton> buttonList = new LinkedList<JRadioButton>();
     /**
      * Creates new form Floors
      */
-    public Floors(int floorsCount) {
+    public Floors(int floorsCount, int elevatorsCount) {
         this.floorsCount = floorsCount;
         this.passengersOnFloors = new PassengerList[floorsCount];
         for(int i = 0; i < floorsCount; i++)
             this.passengersOnFloors[i] = new PassengerList();
         this.buttons = new boolean[floorsCount];
+        this.elevators = new ElevatorEngine[elevatorsCount];
         
         initComponents();
         floorList.add(floor0Label);
@@ -64,15 +66,25 @@ public class Floors extends javax.swing.JPanel {
         Thread thread = new Thread(passengerGenerator);
 	thread.start();
     }
+    
+    public void addElevator(int number, ElevatorEngine elevator){
+        this.elevators[number] = elevator;
+    }
 
     public int getFloorsCount() {
         return floorsCount;
     }
     
     private void handleFloorButton(int floor) {
-        //TODO: ada musi zdecydowac ktora winde wolamy
+        this.buttons[floor] = true;
         
-        //TODO: ElevatorEngine.addRequestFloor()
+        //wybierz winde i ja zawolaj
+        int elevatorNum = Help.Help_Package.whichElevator(elevators, floor);
+        elevators[elevatorNum].addRequestFloor(floor);
+    }
+    
+    public void switchDownFloorButton(int floor){
+        this.buttons[floor] = false;
     }
     
     public void addNewPassengerOnFloor(int floor, Passenger passenger){
@@ -80,7 +92,6 @@ public class Floors extends javax.swing.JPanel {
             passengersOnFloors[floor].add(passenger);
         }
         
-        //TODO: zmiana liczby pasazerow na pietrze!
         setGUI();
     }
     
@@ -102,8 +113,6 @@ public class Floors extends javax.swing.JPanel {
         }
         
         setGUI();
-        
-        //TODO: zmiana liczby pasazerow na pietrze!
         
         return passengers;
     }

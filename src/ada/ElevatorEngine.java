@@ -1,5 +1,7 @@
 package ada;
 
+import java.util.Iterator;
+
 /**
  *
  * @author Krzysztof Kutt & Michal Nowak
@@ -59,7 +61,11 @@ public class ElevatorEngine implements Runnable {
         changeRequestFloor(floor, true);
         
         if(state == 0){
-            //TODO: jezeli winda stala to trzeba ja jakos ruszyc, Ada decyduje (wybiera destination)
+            destination = Help.Help_Package.calcNewDestination(requestedFloors, currentFloor);
+            if(destination > currentFloor)
+                state = 1;
+            else if (destination < currentFloor)
+                state = -1;
         }
     }
     
@@ -76,59 +82,77 @@ public class ElevatorEngine implements Runnable {
         floors.setGUI();
     }
     
+    public int getCurrentFloor(){
+        return currentFloor;
+    }
+    
     @Override
     @SuppressWarnings("SleepWhileInLoop")
     public void run() {
         
         elevator.setStartParams(number,this);
+        floors.addElevator(number,this);
         
         while(true){
             try {
-                
                 draw();
                 
-                //TODO: zmieniamy pietro (currentFloor + state; pamietaj o sprawdzeniu czy nie wychodzisz poza zakres)
-                //      jezeli pietro zostalo zmienione to statFloors++;
+                Thread.sleep(TIME_FOR_MOVE);  //jedziemy na kolejne pietro
+                
+                //TODO: teoretycznie nie wykroczymy poza zakres, ale moze to sprawdzic?
                 currentFloor += state;
                 if (state != 0)
                     statFloors++;
                 
+                //jezeli osiagnelismy destination - wyznacz nowe :)
+                if (currentFloor == destination) {
+                    destination = Help.Help_Package.calcNewDestination(requestedFloors, currentFloor);
+                    if (destination > currentFloor) {
+                        state = 1;
+                    } else if (destination < currentFloor) {
+                        state = -1;
+                    } else {
+                        state = 0;
+                    }
+                }
                 
-                //TODO: czy na tym pietrze sie zatrzymujemy? jezeli nie to koniec tego obiegu petli
-                //DONE
-                if(currentFloor != destination)
+                //jezeli nikt nie chcial sie zatrzymac to jedziemy dalej
+                if(this.requestedFloors[currentFloor] == false){
                     continue;
+                }
                 
-                
-                //TODO: otwarcie drzwi
-                //DONE
                 doorOpen = true;
                 draw();
                 
-                //TODO: kto wysiada
+                //wysiadaja zainteresowani
+                for(Iterator<Passenger> itr = passengers.iterator(); itr.hasNext(); ) {
+                    Passenger passenger = itr.next();
+                    if( passenger.getDestination() == currentFloor ) {
+                        itr.remove();
+                    }
+                }
                 
                 Thread.sleep(TIME_ON_FLOOR);   //wymiana pasazerow
                 
-                //TODO: kto wsiada getPassengersFromFloor(floor, maxymalna liczba osob ktore sie zmieszcza)
-                //      zwieksz odpowiednio statPassengers;
+                //wsiadaja nowi pasazerowie
+                Passenger newPassengers[] = floors.getPassengersFromFloor(currentFloor, this.capacity - this.passengers.size());
+                if( newPassengers != null ){
+                    for(int i = 0; i < newPassengers.length; i++){
+                        passengers.add(newPassengers[i]);
+                        System.out.println("[INFO] Winda " + number + " - wsiadl pasazer, ktory jedzie na pietro "
+                                + newPassengers[i].getDestination());
+                    }
+                    statPassengers += newPassengers.length;
+                }
                 
-                //TODO: zamkniecie drzwi
-                // DONE
                 doorOpen = false;
                 draw();
                 
-                //TODO: usuwamy zadanie zatrzymania na tym pietrze: removeRequestFloor()
-                //TODO: wygaszamy przycisk zatrzymania na tym pietrze (Floor)
-                
-                //TODO: jezeli winda jest pusta i nie ma wezwan to jedz na gore/dol albo po prostu czekaj w tym miejscu
-                // Michał: czekaj po prostu
-                
-                //TODO: jezeli nie osiagnieto destination to ciagle jedz w tym kierunku (czyli nic nie robisz,
-                //      w nastepnym obiegu petli winda bedzie pietro wyzej/nizej)
-                
-                //TODO: jezeli osiagnieto destination - niech Ada ustali co robic (nowe destination)
-                
-                Thread.sleep(TIME_FOR_MOVE);  //jedziemy na kolejne pietro
+                //obsluzylismy juz to pietro:
+                removeRequestFloor(currentFloor);
+                floors.switchDownFloorButton(currentFloor);
+                buttons[currentFloor] = false;
+                elevator.enableButtonOnFloor(currentFloor);
                 
             } catch (InterruptedException ex) {
                 System.err.println("Problem z sleep()");
