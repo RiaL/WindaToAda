@@ -81,6 +81,8 @@ public class Floors extends javax.swing.JPanel {
         //wybierz winde i ja zawolaj
         int elevatorNum = Help.Help_Package.whichElevator(elevators, floor);
         elevators[elevatorNum].addRequestFloor(floor);
+        
+        System.out.println("[INFO] Korytarz: zawolano winde " + elevatorNum + " na pietro " + floor);
     }
     
     public void switchDownFloorButton(int floor){

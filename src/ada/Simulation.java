@@ -37,14 +37,18 @@ public class Simulation extends javax.swing.JPanel {
         //Add contents to the window.
         Simulation simulation = new Simulation();
         simulation.setLayout(new GridLayout(1,ILOSC_WIND+1));
-        System.out.println("P: " + ILOSC_PIETER + " W: " + ILOSC_WIND);
+        
         Floors floors = new Floors(ILOSC_PIETER,ILOSC_WIND);
         simulation.add(floors);
         
         for(int i = 0; i < ILOSC_WIND; i++){
             Elevator elevator = new Elevator();
             simulation.add(elevator);
-            Runnable elevatorEngine = new ElevatorEngine(i,MAX_W_WINDZIE,0,floors,elevator);
+            int startFloor = 0;
+            //co druga winda bedzie na gorze
+            if( i%2 == 1 )
+                startFloor = ILOSC_PIETER-1;
+            Runnable elevatorEngine = new ElevatorEngine(i,MAX_W_WINDZIE,startFloor,floors,elevator);
             Thread thread = new Thread(elevatorEngine);
             thread.start();
         }

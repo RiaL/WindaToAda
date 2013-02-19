@@ -388,7 +388,7 @@ public class Elevator extends javax.swing.JPanel {
 
     private void dangerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dangerButtonActionPerformed
         changeAllButtons(false);
-        // TODO: obsluga sytuacji awaryjnej
+        elevatorEngine.alarm();
     }//GEN-LAST:event_dangerButtonActionPerformed
 
     private void floor4ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_floor4ButtonActionPerformed

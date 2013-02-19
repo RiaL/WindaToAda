@@ -86,6 +86,22 @@ public class ElevatorEngine implements Runnable {
         return currentFloor;
     }
     
+    public void alarm() {
+        //winda jedzie na dol:
+        destination = 0;
+        if (destination > currentFloor) {
+            state = 1;
+        } else if (destination < currentFloor) {
+            state = -1;
+        } else {
+            state = 0;
+        }
+        
+        //usuwamy wszystkie wezwania:
+        for(int i = 0; i < requestedFloors.length; i++)
+            removeRequestFloor(i);
+    }
+    
     @Override
     @SuppressWarnings("SleepWhileInLoop")
     public void run() {
@@ -99,7 +115,7 @@ public class ElevatorEngine implements Runnable {
                 
                 Thread.sleep(TIME_FOR_MOVE);  //jedziemy na kolejne pietro
                 
-                //TODO: teoretycznie nie wykroczymy poza zakres, ale moze to sprawdzic?
+                //WARN: teoretycznie nie wykroczymy poza zakres, ale moze to sprawdzic?
                 currentFloor += state;
                 if (state != 0)
                     statFloors++;
@@ -125,12 +141,17 @@ public class ElevatorEngine implements Runnable {
                 draw();
                 
                 //wysiadaja zainteresowani
+                int howManyWysiada = 0;
                 for(Iterator<Passenger> itr = passengers.iterator(); itr.hasNext(); ) {
                     Passenger passenger = itr.next();
                     if( passenger.getDestination() == currentFloor ) {
+                        howManyWysiada++;
                         itr.remove();
                     }
                 }
+                if( howManyWysiada > 0 )
+                    System.out.println("[INFO] Winda " + number + ": pietro " + currentFloor + ", wysiada " 
+                            + howManyWysiada + " pasazer(ow)");
                 
                 Thread.sleep(TIME_ON_FLOOR);   //wymiana pasazerow
                 
@@ -139,8 +160,8 @@ public class ElevatorEngine implements Runnable {
                 if( newPassengers != null ){
                     for(int i = 0; i < newPassengers.length; i++){
                         passengers.add(newPassengers[i]);
-                        System.out.println("[INFO] Winda " + number + " - wsiadl pasazer, ktory jedzie na pietro "
-                                + newPassengers[i].getDestination());
+                        System.out.println("[INFO] Winda " + number + ": nowy pasazer (cel:"
+                                + newPassengers[i].getDestination() + ")");
                     }
                     statPassengers += newPassengers.length;
                 }
