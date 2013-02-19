@@ -1,5 +1,7 @@
 package ada;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author Krzysztof Kutt & Michal Nowak
@@ -11,6 +13,30 @@ public class MainMenu extends javax.swing.JPanel {
      */
     public MainMenu() {
         initComponents();
+    }
+    
+    private static void createAndShowGUI() {
+        //Create and set up the window.
+        JFrame frame = new JFrame("Ustawienia symulacji");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        frame.add(new MainMenu());
+        
+        //Display the window.
+        frame.pack();
+        frame.setVisible(true);
+    }
+    
+    public static void main(String[] args) {
+        
+        //Schedule a job for the event dispatch thread:
+        //creating and showing this application's GUI.
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                createAndShowGUI();
+            }
+        });
     }
 
     /**
@@ -120,7 +146,12 @@ public class MainMenu extends javax.swing.JPanel {
     }//GEN-LAST:event_cancelButtonActionPerformed
 
     private void startButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startButtonActionPerformed
-        // TODO add your handling code here:
+        this.setVisible(false);
+        Simulation.start(Integer.parseInt((String)capacityComboBox.getSelectedItem()),
+                Integer.parseInt((String)elevatorsComboBox.getSelectedItem()),
+                //Integer.parseInt((String)florrComboBox.getSelectedItem())+1);
+                //na razie na stale 10 pieter:
+                11);
     }//GEN-LAST:event_startButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

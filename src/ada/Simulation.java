@@ -1,6 +1,7 @@
 package ada;
 
 import java.awt.GridLayout;
+import java.util.Date;
 import javax.swing.JFrame;
 
 //TODO: do obsluzenia jeszcze czas trwania symulacji!
@@ -18,12 +19,14 @@ public class Simulation extends javax.swing.JPanel {
     public static int ILOSC_PIETER = 10 + 1; // to +1 to po to zeby pamietac pozniej o uwzglednieniu parteru
     static int ILOSC_WIND = 2;
     static int MAX_W_WINDZIE = 5;
+    Date startTime;
     
     /**
      * Creates new form Simulation
      */
     public Simulation() {
         initComponents();
+        startTime = new Date();
     }
     
     private static void createAndShowGUI() {
@@ -33,23 +36,18 @@ public class Simulation extends javax.swing.JPanel {
 
         //Add contents to the window.
         Simulation simulation = new Simulation();
-        simulation.setLayout(new GridLayout(1,3));
+        simulation.setLayout(new GridLayout(1,ILOSC_WIND+1));
+        System.out.println("P: " + ILOSC_PIETER + " W: " + ILOSC_WIND);
         Floors floors = new Floors(ILOSC_PIETER,ILOSC_WIND);
-        Elevator elevator1 = new Elevator();
-        Elevator elevator2 = new Elevator();
-        
         simulation.add(floors);
-        simulation.add(elevator1);
-        simulation.add(elevator2);
         
-        Runnable elevatorEngine1 = new ElevatorEngine(0,MAX_W_WINDZIE,0,floors,elevator1);
-        Thread thread1 = new Thread(elevatorEngine1);
-	thread1.start();
-        
-        Runnable elevatorEngine2 = new ElevatorEngine(1,MAX_W_WINDZIE,ILOSC_PIETER-1,floors,elevator2);
-        Thread thread2 = new Thread(elevatorEngine2);
-	thread2.start();
-        
+        for(int i = 0; i < ILOSC_WIND; i++){
+            Elevator elevator = new Elevator();
+            simulation.add(elevator);
+            Runnable elevatorEngine = new ElevatorEngine(i,MAX_W_WINDZIE,0,floors,elevator);
+            Thread thread = new Thread(elevatorEngine);
+            thread.start();
+        }
         
         frame.add(simulation);
         
@@ -58,7 +56,11 @@ public class Simulation extends javax.swing.JPanel {
         frame.setVisible(true);
     }
     
-    public static void main(String[] args) {
+    public static void start(int capacity, int elevatorsCount, int floorsCount) {
+        MAX_W_WINDZIE = capacity;
+        ILOSC_PIETER = floorsCount;
+        ILOSC_WIND = elevatorsCount;
+        
         //Schedule a job for the event dispatch thread:
         //creating and showing this application's GUI.
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
