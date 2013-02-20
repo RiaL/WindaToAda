@@ -1,6 +1,9 @@
 package ada;
 
+
 import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  *
@@ -26,7 +29,7 @@ public class ElevatorEngine implements Runnable {
     
     /** przyciski wcisniete w windzie */
     boolean buttons[];
-    
+    boolean alarm;
     /** winda ma sie zatrzymac na tych pietrach */
     boolean requestedFloors[];
     
@@ -36,7 +39,17 @@ public class ElevatorEngine implements Runnable {
     /** statistics */
     int statPassengers;
     int statFloors;
-    int statElevators[][] = new int[Simulation.ILOSC_WIND][];
+    List<Integer> floorsStats = new LinkedList<Integer>();
+    List<Integer> passengersStats = new LinkedList<Integer>();
+
+    public List<Integer> getFloorsStats() {
+        return floorsStats;
+    }
+
+    public List<Integer> getPassengersStats() {
+        return passengersStats;
+    }
+    
     
     public ElevatorEngine(int number, int capacity, int currentFloor, Floors floors, Elevator elevator) {
         this.number = number;
@@ -47,6 +60,7 @@ public class ElevatorEngine implements Runnable {
         this.requestedFloors = new boolean[floors.getFloorsCount()];
         this.floors = floors;
         this.elevator = elevator;
+        this.alarm = true;
         
         state = 0;
         passengers = new PassengerList();
@@ -101,8 +115,14 @@ public class ElevatorEngine implements Runnable {
         //usuwamy wszystkie wezwania:
         for(int i = 0; i < requestedFloors.length; i++)
             removeRequestFloor(i);
+        
+        alarm = false;
     }
     
+    public void stop(){
+        alarm = false;
+        currentFloor = 0;
+    }
     
     public int getNumber() {
         return number;
@@ -123,8 +143,9 @@ public class ElevatorEngine implements Runnable {
         
         elevator.setStartParams(number,this);
         floors.addElevator(number,this);
-        
-        while(true){
+        floorsStats.add(currentFloor);
+        passengersStats.add(passengers.size());
+        while((alarm || currentFloor != 0)){
             try {
                 draw();
                 
@@ -153,6 +174,7 @@ public class ElevatorEngine implements Runnable {
                 }
                 
                 doorOpen = true;
+                floorsStats.add(currentFloor);
                 draw();
                 
                 //wysiadaja zainteresowani
@@ -181,8 +203,9 @@ public class ElevatorEngine implements Runnable {
                                 + newPassengers[i].getDestination() + ")");
                     }
                     statPassengers += newPassengers.length;
+                    
                 }
-                
+                passengersStats.add(passengers.size());
                 doorOpen = false;
                 draw();
                 
@@ -197,6 +220,8 @@ public class ElevatorEngine implements Runnable {
                 ex.printStackTrace();
             }
         }
+        doorOpen = true;
+        draw();
     }
     
 }

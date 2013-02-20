@@ -102,6 +102,14 @@ public class Simulation extends javax.swing.JPanel {
             }
         });
         
+        chartsItem.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                JFrame jf = new ChartsStats(engines);
+            }
+        });
+        
         frame.pack();
         frame.setVisible(true);
     }
@@ -123,7 +131,9 @@ public class Simulation extends javax.swing.JPanel {
 
     private static void stop(){
         stopTime = new Date();
-        // zatrzymywanie symulacji
+        for(ElevatorEngine ee: engines){
+            ee.stop();
+        }
     }
     
     private static String getShortStats(){

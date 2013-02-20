@@ -15,19 +15,25 @@ public class PassengerGenerator implements Runnable {
     int floorsCount;
     Floors floors;
     Random r = new Random();
+    boolean work;
 
     public PassengerGenerator(int floorsCount, Floors floors) {
         this.floorsCount = floorsCount;
         this.floors = floors;
         this.r = new Random(new Date().getTime());
+        this.work = true;
     }
 
+    public void stop(){
+        work = false;
+    }
+    
     @Override
     public void run() {
         try {
             Thread.sleep(2000); //oczekiwanie na zaladowanie wind
 
-            while (true) {
+            while (work) {
                 try {
                     int to = r.nextInt(Simulation.ILOSC_PIETER);
                     Passenger pass = new Passenger(to);
