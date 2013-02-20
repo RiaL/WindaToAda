@@ -38,11 +38,26 @@ public class Floors extends javax.swing.JPanel {
         floorList.add(floor3Label);
         floorList.add(floor4Label);
         floorList.add(floor5Label);
-        floorList.add(floor6Label);
-        floorList.add(floor7Label);
-        floorList.add(floor8Label);
-        floorList.add(floor9Label);
-        floorList.add(floor10Label);
+        if (Simulation.ILOSC_PIETER > 6)
+            floorList.add(floor6Label);
+        else
+            floor6Label.setVisible(false);
+        if (Simulation.ILOSC_PIETER > 7)
+            floorList.add(floor7Label);
+        else
+            floor7Label.setVisible(false);
+        if (Simulation.ILOSC_PIETER > 8)
+            floorList.add(floor8Label);
+        else
+            floor8Label.setVisible(false);
+        if (Simulation.ILOSC_PIETER > 9)
+            floorList.add(floor9Label);
+        else
+            floor9Label.setVisible(false);
+        if (Simulation.ILOSC_PIETER > 10)
+            floorList.add(floor10Label);
+        else
+            floor10Label.setVisible(false);
         
         buttonList.add(floor0RadioButton);
         buttonList.add(floor1RadioButton);
@@ -50,12 +65,26 @@ public class Floors extends javax.swing.JPanel {
         buttonList.add(floor3RadioButton);
         buttonList.add(floor4RadioButton);
         buttonList.add(floor5RadioButton);
-        buttonList.add(floor6RadioButton);
-        buttonList.add(floor7RadioButton);
-        buttonList.add(floor8RadioButton);
-        buttonList.add(floor9RadioButton);
-        buttonList.add(floor10RadioButton);
-        
+        if (Simulation.ILOSC_PIETER > 6)
+            buttonList.add(floor6RadioButton);
+        else
+            floor6RadioButton.setVisible(false);
+        if (Simulation.ILOSC_PIETER > 7)
+            buttonList.add(floor7RadioButton);
+        else
+            floor7RadioButton.setVisible(false);
+        if (Simulation.ILOSC_PIETER > 8)
+            buttonList.add(floor8RadioButton);
+        else
+            floor8RadioButton.setVisible(false);
+        if (Simulation.ILOSC_PIETER > 9)
+            buttonList.add(floor9RadioButton);
+        else
+            floor9RadioButton.setVisible(false);
+        if (Simulation.ILOSC_PIETER > 10)
+            buttonList.add(floor10RadioButton);
+        else
+            floor10RadioButton.setVisible(false);
         setGUI();
         
         startPassengerGenerator();
@@ -69,6 +98,7 @@ public class Floors extends javax.swing.JPanel {
     
     public void addElevator(int number, ElevatorEngine elevator){
         this.elevators[number] = elevator;
+        System.out.println("[INFO] Zaladowano winde " + number);
     }
 
     public int getFloorsCount() {
@@ -93,7 +123,7 @@ public class Floors extends javax.swing.JPanel {
         synchronized(passengersOnFloors[floor]){
             passengersOnFloors[floor].add(passenger);
         }
-        
+        handleFloorButton(floor);
         setGUI();
     }
     

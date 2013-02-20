@@ -67,51 +67,51 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="floor9Label" alignment="0" max="-2" attributes="0"/>
-                  <Component id="floor9RadioButton" alignment="0" pref="0" max="32767" attributes="0"/>
+                  <Component id="floor9RadioButton" alignment="0" pref="20" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="floor8Label" alignment="0" max="-2" attributes="0"/>
-                  <Component id="floor8RadioButton" alignment="0" pref="0" max="32767" attributes="0"/>
+                  <Component id="floor8RadioButton" alignment="0" pref="20" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="floor7Label" alignment="0" max="-2" attributes="0"/>
-                  <Component id="floor7RadioButton" alignment="0" pref="0" max="32767" attributes="0"/>
+                  <Component id="floor7RadioButton" alignment="0" pref="20" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="floor6Label" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="floor6RadioButton" alignment="0" pref="0" max="32767" attributes="0"/>
+                  <Component id="floor6RadioButton" alignment="0" pref="20" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="floor5Label" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="floor5RadioButton" alignment="0" pref="0" max="32767" attributes="0"/>
+                  <Component id="floor5RadioButton" alignment="0" pref="20" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="floor4Label" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="floor4RadioButton" alignment="0" pref="0" max="32767" attributes="0"/>
+                  <Component id="floor4RadioButton" alignment="0" pref="20" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="floor3Label" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="floor3RadioButton" alignment="0" pref="0" max="32767" attributes="0"/>
+                  <Component id="floor3RadioButton" alignment="0" pref="20" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="floor2Label" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="floor2RadioButton" alignment="0" pref="0" max="32767" attributes="0"/>
+                  <Component id="floor2RadioButton" alignment="0" pref="20" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="floor1Label" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="floor1RadioButton" alignment="0" pref="0" max="32767" attributes="0"/>
+                  <Component id="floor1RadioButton" alignment="0" pref="20" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="floor0RadioButton" alignment="0" pref="0" max="32767" attributes="0"/>
+                  <Component id="floor0RadioButton" alignment="0" pref="20" max="32767" attributes="0"/>
                   <Component id="floor0Label" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>

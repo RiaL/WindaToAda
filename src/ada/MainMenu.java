@@ -73,7 +73,7 @@ public class MainMenu extends javax.swing.JPanel {
 
         elevatorsLabel.setText("Ilość wind:");
 
-        elevatorsComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "0", "1", "2", "3" }));
+        elevatorsComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3" }));
         elevatorsComboBox.setSelectedIndex(1);
 
         cancelButton.setText("Anuluj");
@@ -149,9 +149,9 @@ public class MainMenu extends javax.swing.JPanel {
         this.setVisible(false);
         Simulation.start(Integer.parseInt((String)capacityComboBox.getSelectedItem()),
                 Integer.parseInt((String)elevatorsComboBox.getSelectedItem()),
-                //Integer.parseInt((String)florrComboBox.getSelectedItem())+1);
+                Integer.parseInt((String)florrComboBox.getSelectedItem())+1);
                 //na razie na stale 10 pieter:
-                11);
+                //11);
     }//GEN-LAST:event_startButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

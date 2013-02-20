@@ -15,7 +15,7 @@ public class Elevator extends javax.swing.JPanel {
     static String FIRST_DOOR = "|   ";
     static String SECOND_DOOR = "   |";
     ElevatorEngine elevatorEngine;
-    int floorNumber = 1 + 10;
+    //int floorNumber = Simulation.ILOSC_PIETER;
     List<JLabel> floorList = new LinkedList<JLabel>();
     List<JButton> buttonList = new LinkedList<JButton>();
     /**
@@ -29,11 +29,26 @@ public class Elevator extends javax.swing.JPanel {
         floorList.add(floor3Label);
         floorList.add(floor4Label);
         floorList.add(floor5Label);
-        floorList.add(floor6Label);
-        floorList.add(floor7Label);
-        floorList.add(floor8Label);
-        floorList.add(floor9Label);
-        floorList.add(floor10Label);
+        if (Simulation.ILOSC_PIETER > 6)
+            floorList.add(floor6Label);
+        else
+            floor6Label.setVisible(false);
+        if (Simulation.ILOSC_PIETER > 7)
+            floorList.add(floor7Label);
+        else
+            floor7Label.setVisible(false);
+        if (Simulation.ILOSC_PIETER > 8)
+            floorList.add(floor8Label);
+        else
+            floor8Label.setVisible(false);
+        if (Simulation.ILOSC_PIETER > 9)
+            floorList.add(floor9Label);
+        else
+            floor9Label.setVisible(false);
+        if (Simulation.ILOSC_PIETER > 10)
+            floorList.add(floor10Label);
+        else
+            floor10Label.setVisible(false);
         
         buttonList.add(floor0Button);
         buttonList.add(floor1Button);
@@ -41,11 +56,26 @@ public class Elevator extends javax.swing.JPanel {
         buttonList.add(floor3Button);
         buttonList.add(floor4Button);
         buttonList.add(floor5Button);
-        buttonList.add(floor6Button);
-        buttonList.add(floor7Button);
-        buttonList.add(floor8Button);
-        buttonList.add(floor9Button);
-        buttonList.add(floor10Button);
+        if (Simulation.ILOSC_PIETER > 6)
+            buttonList.add(floor6Button);
+        else
+            floor6Button.setVisible(false);
+        if (Simulation.ILOSC_PIETER > 7)
+            buttonList.add(floor7Button);
+        else
+            floor7Button.setVisible(false);
+        if (Simulation.ILOSC_PIETER > 8)
+            buttonList.add(floor8Button);
+        else
+            floor8Button.setVisible(false);        
+        if (Simulation.ILOSC_PIETER > 9)
+            buttonList.add(floor9Button);
+        else
+            floor9Button.setVisible(false);        
+        if (Simulation.ILOSC_PIETER > 10)
+            buttonList.add(floor10Button);
+        else
+            floor10Button.setVisible(false);        
     }
     
     public void setStartParams(int number, ElevatorEngine elevatorEngine){
@@ -68,6 +98,10 @@ public class Elevator extends javax.swing.JPanel {
             }
             i++;
         }
+    }
+    
+    void pushButton(int which){
+        buttonList.get(which).setEnabled(false);
     }
     
     void enableButtonOnFloor(int floor){

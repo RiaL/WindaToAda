@@ -160,6 +160,8 @@ public class ElevatorEngine implements Runnable {
                 if( newPassengers != null ){
                     for(int i = 0; i < newPassengers.length; i++){
                         passengers.add(newPassengers[i]);
+                        elevator.pushButton(newPassengers[i].getDestination());
+                        handleElevatorButton(newPassengers[i].getDestination());
                         System.out.println("[INFO] Winda " + number + ": nowy pasazer (cel:"
                                 + newPassengers[i].getDestination() + ")");
                     }
