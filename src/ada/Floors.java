@@ -90,6 +90,10 @@ public class Floors extends javax.swing.JPanel {
         startPassengerGenerator();
     }
     
+    public ElevatorEngine[] getElevators() {
+        return elevators;
+    }
+    
     private void startPassengerGenerator(){
         Runnable passengerGenerator = new PassengerGenerator(floorsCount,this);
         Thread thread = new Thread(passengerGenerator);

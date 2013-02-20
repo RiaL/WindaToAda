@@ -32,10 +32,11 @@ public class ElevatorEngine implements Runnable {
     
     Floors floors;
     Elevator elevator;
-    
+
     /** statistics */
     int statPassengers;
     int statFloors;
+    int statElevators[][] = new int[Simulation.ILOSC_WIND][];
     
     public ElevatorEngine(int number, int capacity, int currentFloor, Floors floors, Elevator elevator) {
         this.number = number;
@@ -101,6 +102,20 @@ public class ElevatorEngine implements Runnable {
         for(int i = 0; i < requestedFloors.length; i++)
             removeRequestFloor(i);
     }
+    
+    
+    public int getNumber() {
+        return number;
+    }
+
+    public int getStatPassengers() {
+        return statPassengers;
+    }
+
+    public int getStatFloors() {
+        return statFloors;
+    }
+    
     
     @Override
     @SuppressWarnings("SleepWhileInLoop")
