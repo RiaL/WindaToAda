@@ -8,6 +8,8 @@ import javax.swing.JFrame;
  */
 public class MainMenu extends javax.swing.JPanel {
 
+    static JFrame frame;
+    
     /**
      * Creates new form MainMenu
      */
@@ -17,7 +19,7 @@ public class MainMenu extends javax.swing.JPanel {
     
     private static void createAndShowGUI() {
         //Create and set up the window.
-        JFrame frame = new JFrame("Ustawienia symulacji");
+        frame = new JFrame("Ustawienia symulacji");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         frame.add(new MainMenu());
@@ -146,7 +148,7 @@ public class MainMenu extends javax.swing.JPanel {
     }//GEN-LAST:event_cancelButtonActionPerformed
 
     private void startButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startButtonActionPerformed
-        this.setVisible(false);
+        frame.dispose();
         Simulation.start(Integer.parseInt((String)capacityComboBox.getSelectedItem()),
                 Integer.parseInt((String)elevatorsComboBox.getSelectedItem()),
                 Integer.parseInt((String)florrComboBox.getSelectedItem())+1);
